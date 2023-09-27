@@ -50,7 +50,7 @@ impl SmartMotor {
                     let taken_port = mem::take(port);
                     let motor = taken_port
                         .unwrap()
-                        .into_motor(Gearset::EighteenToOne, EncoderUnits::Degrees, false)
+                        .into_motor(self.gearset, self.encoder_units, self.reverse)
                         .unwrap();
 
                     mem::swap(device, &mut Device::Connected(motor));
